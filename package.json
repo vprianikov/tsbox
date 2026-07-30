@@ -18,7 +18,8 @@
   "scripts": {
     "check": "npx --no -- lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f package-lock.json && npm i --no-fund",
-    "fix": "npx --no -- prettier --write ."
+    "fix": "npx --no -- prettier --write .",
+    "start": "node src/main.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^21",
