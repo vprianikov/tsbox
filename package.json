@@ -16,11 +16,17 @@
   },
   "type": "module",
   "scripts": {
+    "check": "npx --no -- lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f package-lock.json && npm i --no-fund"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "lefthook": "^2"
+  },
   "volta": {
     "node": "26.5.1",
     "npm": "11.17.0"
+  },
+  "allowScripts": {
+    "lefthook": true
   }
 }
