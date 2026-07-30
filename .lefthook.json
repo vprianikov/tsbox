@@ -10,6 +10,9 @@
     "jobs": [
       {
         "run": "npm ci --dry-run --ignore-scripts --no-audit --no-fund"
+      },
+      {
+        "run": "npx --no -- prettier --check ."
       }
     ]
   }

@@ -17,12 +17,17 @@
   "type": "module",
   "scripts": {
     "check": "npx --no -- lefthook run pre-commit --force",
-    "clean": "git clean -Xdf && rm -f package-lock.json && npm i --no-fund"
+    "clean": "git clean -Xdf && rm -f package-lock.json && npm i --no-fund",
+    "fix": "npx --no -- prettier --write ."
   },
   "devDependencies": {
     "@commitlint/cli": "^21",
     "@commitlint/config-conventional": "^21",
-    "lefthook": "^2"
+    "lefthook": "^2",
+    "prettier": "^3",
+    "prettier-plugin-expand-json": "^1",
+    "prettier-plugin-packagejson": "^3",
+    "prettier-plugin-sort-json": "^4"
   },
   "volta": {
     "node": "26.5.1",
