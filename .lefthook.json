@@ -12,6 +12,9 @@
         "run": "npm ci --dry-run --ignore-scripts --no-audit --no-fund"
       },
       {
+        "run": "npx --no -- vitest run --reporter=agent --coverage --coverage.reporter=text-summary --coverage.include='src/**/*.js'  --coverage.exclude='src/main.js' --coverage.thresholds.lines=80 --coverage.thresholds.functions=80 --coverage.thresholds.statements=80 --coverage.thresholds.branches=70"
+      },
+      {
         "run": "npx --no -- prettier --check ."
       }
     ]

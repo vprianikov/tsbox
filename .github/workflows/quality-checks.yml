@@ -28,8 +28,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run pre-commit hook
-        run: npm run check
+      - name: Run tests with coverage
+        run: >-
+          npx --no -- vitest run
+          --reporter=agent
+          --coverage
+          --coverage.reporter=text-summary
+          --coverage.include='src/**/*.js'
+          --coverage.exclude='src/main.js'
+          --coverage.thresholds.lines=80
+          --coverage.thresholds.functions=80
+          --coverage.thresholds.statements=80
+          --coverage.thresholds.branches=70
+
+      - name: Check formatting
+        run: npx --no -- prettier --check .
 
       - name: Validate commit messages
         run: >-
