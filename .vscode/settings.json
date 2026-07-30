@@ -12,5 +12,6 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll.prettier": "explicit"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "vitest.watchOnStartup": true
 }
