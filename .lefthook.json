@@ -19,6 +19,9 @@
       },
       {
         "run": "npx --no -- prettier --check ."
+      },
+      {
+        "run": "npx --no -- knip"
       }
     ]
   }

@@ -47,6 +47,9 @@ jobs:
       - name: Check formatting
         run: npx --no -- prettier --check .
 
+      - name: Check unused files and dependencies
+        run: npx --no -- knip
+
       - name: Validate commit messages
         run: >-
           npx --no -- commitlint
