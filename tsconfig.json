@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "${configDir}/dist",
+    "rootDir": "${configDir}/src",
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "src/**/*.test.ts"
+  ],
+  "extends": [
+    "@tsconfig/node26/tsconfig.json"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}
