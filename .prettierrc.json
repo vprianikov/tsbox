@@ -1,6 +1,16 @@
 {
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/",
+    "",
+    "^[.]"
+  ],
+  "importOrderCaseSensitive": false,
   "jsonRecursiveSort": true,
   "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-sort-json",
     "prettier-plugin-expand-json",
     "prettier-plugin-packagejson"
