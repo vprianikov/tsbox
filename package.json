@@ -24,11 +24,13 @@
   "devDependencies": {
     "@commitlint/cli": "^21",
     "@commitlint/config-conventional": "^21",
+    "@vitest/coverage-v8": "^4",
     "lefthook": "^2",
     "prettier": "^3",
     "prettier-plugin-expand-json": "^1",
     "prettier-plugin-packagejson": "^3",
-    "prettier-plugin-sort-json": "^4"
+    "prettier-plugin-sort-json": "^4",
+    "vitest": "^4"
   },
   "volta": {
     "node": "26.5.1"
