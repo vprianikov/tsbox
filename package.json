@@ -1,0 +1,26 @@
+{
+  "name": "tsbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/vprianikov/tsbox#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vprianikov/tsbox.git"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": {
+    "name": "Vasilii Prianikov",
+    "email": "88191516+vprianikov@users.noreply.github.com"
+  },
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -Xdf && rm -f package-lock.json && npm i --no-fund"
+  },
+  "devDependencies": {},
+  "volta": {
+    "node": "26.5.1",
+    "npm": "11.17.0"
+  }
+}
