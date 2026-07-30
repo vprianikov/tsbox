@@ -52,6 +52,8 @@ jobs:
 
       - name: Check unused files and dependencies
         run: npx --no -- knip
+        env:
+          KNIP_DISABLE_RAW_TRANSFER: "1"
 
       - name: Validate commit messages
         run: >-
