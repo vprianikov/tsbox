@@ -20,6 +20,8 @@
     "clean": "git clean -Xdf && rm -f package-lock.json && npm i --no-fund"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21",
+    "@commitlint/config-conventional": "^21",
     "lefthook": "^2"
   },
   "volta": {
