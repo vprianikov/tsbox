@@ -1,0 +1,9 @@
+{
+  "jsonRecursiveSort": true,
+  "multilineArraysWrapThreshold": 0,
+  "plugins": [
+    "prettier-plugin-sort-json",
+    "prettier-plugin-multiline-arrays",
+    "prettier-plugin-expand-json"
+  ]
+}

@@ -16,6 +16,9 @@
       },
       {
         "run": "bun run test"
+      },
+      {
+        "run": "bun run format:check"
       }
     ]
   }

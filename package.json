@@ -17,6 +17,8 @@
     "check": "bun run lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f bun.lock && bun i",
     "dev": "bun run --watch src/index.ts",
+    "format:check": "bun run prettier --check .",
+    "format:fix": "bun run prettier --write .",
     "start": "bun run src/index.ts",
     "test": "bun test --pass-with-no-tests",
     "typecheck": "bun run tsc --noEmit"
@@ -28,6 +30,10 @@
     "@tsconfig/bun": "^1",
     "@types/bun": "^1",
     "lefthook": "^2",
+    "prettier": "^3",
+    "prettier-plugin-expand-json": "^1",
+    "prettier-plugin-multiline-arrays": "^4",
+    "prettier-plugin-sort-json": "^4",
     "typescript": "^5"
   },
   "peerDependencies": {},
