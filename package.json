@@ -14,9 +14,8 @@
   },
   "type": "module",
   "scripts": {
-    "check": "bun run deps:check && bun run typecheck && bun run test",
+    "check": "bun run lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f bun.lock && bun i",
-    "deps:check": "bun install --frozen-lockfile --ignore-scripts",
     "dev": "bun run --watch src/index.ts",
     "start": "bun run src/index.ts",
     "test": "bun test --pass-with-no-tests",
@@ -26,7 +25,11 @@
   "devDependencies": {
     "@tsconfig/bun": "^1",
     "@types/bun": "^1",
+    "lefthook": "^2",
     "typescript": "^5"
   },
-  "peerDependencies": {}
+  "peerDependencies": {},
+  "trustedDependencies": [
+    "lefthook"
+  ]
 }
