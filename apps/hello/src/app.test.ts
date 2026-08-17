@@ -6,6 +6,8 @@ afterEach(() => {
 
 describe("Hello application", () => {
   test("prints the greeting", async () => {
+    expect.assertions(2);
+
     const log = vi.spyOn(console, "log").mockImplementation(() => undefined);
 
     await import("./app");
