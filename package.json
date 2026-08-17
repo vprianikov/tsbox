@@ -25,7 +25,7 @@
     "format:fix": "bun run prettier --write .",
     "start": "bun run --workspaces --if-present start",
     "test": "bun run vitest run --reporter=agent",
-    "test:coverage": "bun run vitest run --reporter=agent --coverage --coverage.thresholds.branches=70 --coverage.thresholds.functions=80 --coverage.thresholds.lines=80 --coverage.thresholds.statements=80",
+    "test:coverage": "bun run vitest run --reporter=agent --coverage --coverage.reporter=text-summary --coverage.thresholds.branches=70 --coverage.thresholds.functions=80 --coverage.thresholds.lines=80 --coverage.thresholds.statements=80",
     "typecheck": "bun run --workspaces typecheck"
   },
   "devDependencies": {
