@@ -20,6 +20,7 @@
   "scripts": {
     "check": "bun run lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f bun.lock && bun i",
+    "commit:check": "commitlint --edit",
     "dev": "bun run --workspaces --if-present dev",
     "format:check": "bun run prettier --check .",
     "format:fix": "bun run prettier --write .",

@@ -2,7 +2,7 @@
   "commit-msg": {
     "jobs": [
       {
-        "run": "bun run commitlint --edit {1}"
+        "run": "bun run commit:check {1}"
       }
     ]
   },
