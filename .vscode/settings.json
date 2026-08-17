@@ -8,7 +8,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "bun.test.enable": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.prettier": "explicit"
-  }
+  },
+  "vitest.watchOnStartup": true
 }

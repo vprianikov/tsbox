@@ -33,19 +33,22 @@
     "format:check": "bun run prettier --check .",
     "format:fix": "bun run prettier --write .",
     "start": "bun run --workspaces --if-present start",
-    "test": "bun run --workspaces --if-present test",
+    "test": "bun run vitest run --reporter=agent",
+    "test:coverage": "bun run vitest run --reporter=agent --coverage --coverage.thresholds.branches=70 --coverage.thresholds.functions=80 --coverage.thresholds.lines=80 --coverage.thresholds.statements=80",
     "typecheck": "bun run --workspaces --if-present typecheck"
   },
   "devDependencies": {
     "@commitlint/cli": "^21",
     "@commitlint/config-conventional": "^21",
     "@ianvs/prettier-plugin-sort-imports": "^4",
+    "@vitest/coverage-v8": "^4",
     "lefthook": "^2",
     "prettier": "^3",
     "prettier-plugin-expand-json": "^1",
     "prettier-plugin-multiline-arrays": "^4",
     "prettier-plugin-packagejson": "^3",
-    "prettier-plugin-sort-json": "^4"
+    "prettier-plugin-sort-json": "^4",
+    "vitest": "^4"
   },
   "trustedDependencies": [
     "lefthook"

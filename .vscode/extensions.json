@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "esbenp.prettier-vscode",
-    "oven.bun-vscode"
+    "oven.bun-vscode",
+    "vitest.explorer"
   ]
 }

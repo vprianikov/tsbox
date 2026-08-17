@@ -21,7 +21,7 @@
     "format:check": "bun run --cwd ../.. format:check",
     "format:fix": "bun run --cwd ../.. format:fix",
     "start": "bun run src/app.ts",
-    "test": "bun test --pass-with-no-tests",
+    "test": "bun run vitest run --reporter=agent",
     "typecheck": "bun run tsc --noEmit"
   },
   "dependencies": {
