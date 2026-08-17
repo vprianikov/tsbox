@@ -26,10 +26,5 @@
   },
   "dependencies": {
     "@tsbox/hello": "workspace:*"
-  },
-  "devDependencies": {
-    "@tsconfig/bun": "catalog:base",
-    "@types/bun": "catalog:base",
-    "typescript": "catalog:base"
   }
 }

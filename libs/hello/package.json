@@ -24,12 +24,5 @@
     "format:fix": "bun run --cwd ../.. format:fix",
     "test": "bun run vitest run --reporter=agent",
     "typecheck": "bun run tsc --noEmit"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@tsconfig/bun": "catalog:base",
-    "@types/bun": "catalog:base",
-    "typescript": "catalog:base"
-  },
-  "peerDependencies": {}
+  }
 }

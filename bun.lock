@@ -8,6 +8,8 @@
         "@commitlint/cli": "^21",
         "@commitlint/config-conventional": "^21",
         "@ianvs/prettier-plugin-sort-imports": "^4",
+        "@tsconfig/bun": "^1",
+        "@types/bun": "^1",
         "@vitest/coverage-v8": "^4",
         "lefthook": "^2",
         "prettier": "^3",
@@ -15,6 +17,7 @@
         "prettier-plugin-multiline-arrays": "^4",
         "prettier-plugin-packagejson": "^3",
         "prettier-plugin-sort-json": "^4",
+        "typescript": "^5",
         "vitest": "^4",
       },
     },
@@ -24,32 +27,15 @@
       "dependencies": {
         "@tsbox/hello": "workspace:*",
       },
-      "devDependencies": {
-        "@tsconfig/bun": "catalog:base",
-        "@types/bun": "catalog:base",
-        "typescript": "catalog:base",
-      },
     },
     "libs/hello": {
       "name": "@tsbox/hello",
       "version": "0.1.0",
-      "devDependencies": {
-        "@tsconfig/bun": "catalog:base",
-        "@types/bun": "catalog:base",
-        "typescript": "catalog:base",
-      },
     },
   },
   "trustedDependencies": [
     "lefthook",
   ],
-  "catalogs": {
-    "base": {
-      "@tsconfig/bun": "^1",
-      "@types/bun": "^1",
-      "typescript": "^5",
-    },
-  },
   "packages": {
     "@augment-vir/assert": ["@augment-vir/assert@32.2.2", "", { "dependencies": { "@augment-vir/core": "^32.2.2", "@date-vir/duration": "^9.0.0", "deep-eql": "^5.0.2", "expect-type": "^1.4.0" } }, "sha512-JUT6aHBcCEm7IORRvKxI9PWGkN9FiMYvkpKnGQeoyDvksfdaol7nTbgGVnskvy7b/sZWk1zErvuh2Jgh2Owtog=="],
 
