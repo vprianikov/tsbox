@@ -23,6 +23,8 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^21",
+    "@commitlint/config-conventional": "^21",
     "@tsconfig/bun": "^1",
     "@types/bun": "^1",
     "lefthook": "^2",

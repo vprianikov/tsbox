@@ -1,4 +1,11 @@
 {
+  "commit-msg": {
+    "jobs": [
+      {
+        "run": "bun run commitlint --edit {1}"
+      }
+    ]
+  },
   "pre-commit": {
     "jobs": [
       {
