@@ -1,0 +1,34 @@
+{
+  "name": "@tsbox/hello",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hello World application powered by Bun",
+  "homepage": "https://github.com/vprianikov/tsbox/apps/hello#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vprianikov/tsbox.git"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": {
+    "name": "Vasilii Prianikov",
+    "email": "88191516+vprianikov@users.noreply.github.com"
+  },
+  "type": "module",
+  "scripts": {
+    "check": "bun run --cwd ../.. check",
+    "clean": "bun run --cwd ../.. clean",
+    "dev": "bun run --watch src/index.ts",
+    "format:check": "bun run --cwd ../.. format:check",
+    "format:fix": "bun run --cwd ../.. format:fix",
+    "start": "bun run src/index.ts",
+    "test": "bun test --pass-with-no-tests",
+    "typecheck": "bun run tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tsconfig/bun": "catalog:base",
+    "@types/bun": "catalog:base",
+    "typescript": "catalog:base"
+  },
+  "peerDependencies": {}
+}

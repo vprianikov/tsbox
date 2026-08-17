@@ -1,6 +1,6 @@
 {
   "name": "tsbox",
-  "version": "0.1.0",
+  "private": true,
   "description": "Modern TypeScript monorepo powered by Bun",
   "homepage": "https://github.com/vprianikov/tsbox#readme",
   "repository": {
@@ -13,32 +13,39 @@
     "email": "88191516+vprianikov@users.noreply.github.com"
   },
   "type": "module",
+  "workspaces": {
+    "packages": [
+      "apps/**"
+    ],
+    "catalogs": {
+      "base": {
+        "@tsconfig/bun": "^1",
+        "@types/bun": "^1",
+        "typescript": "^5"
+      }
+    }
+  },
   "scripts": {
     "check": "bun run lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f bun.lock && bun i",
-    "dev": "bun run --watch src/index.ts",
+    "dev": "bun run --workspaces --if-present dev",
     "format:check": "bun run prettier --check .",
     "format:fix": "bun run prettier --write .",
-    "start": "bun run src/index.ts",
-    "test": "bun test --pass-with-no-tests",
-    "typecheck": "bun run tsc --noEmit"
+    "start": "bun run --workspaces --if-present start",
+    "test": "bun run --workspaces --if-present test",
+    "typecheck": "bun run --workspaces --if-present typecheck"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^21",
     "@commitlint/config-conventional": "^21",
     "@ianvs/prettier-plugin-sort-imports": "^4",
-    "@tsconfig/bun": "^1",
-    "@types/bun": "^1",
     "lefthook": "^2",
     "prettier": "^3",
     "prettier-plugin-expand-json": "^1",
     "prettier-plugin-multiline-arrays": "^4",
     "prettier-plugin-packagejson": "^3",
-    "prettier-plugin-sort-json": "^4",
-    "typescript": "^5"
+    "prettier-plugin-sort-json": "^4"
   },
-  "peerDependencies": {},
   "trustedDependencies": [
     "lefthook"
   ]
