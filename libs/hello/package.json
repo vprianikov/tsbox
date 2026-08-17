@@ -1,9 +1,9 @@
 {
-  "name": "@tsbox/hello-app",
+  "name": "@tsbox/hello",
   "version": "0.1.0",
   "private": true,
-  "description": "Hello World application powered by Bun",
-  "homepage": "https://github.com/vprianikov/tsbox/apps/hello#readme",
+  "description": "Hello World library powered by Bun",
+  "homepage": "https://github.com/vprianikov/tsbox/libs/hello#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vprianikov/tsbox.git"
@@ -14,22 +14,22 @@
     "email": "88191516+vprianikov@users.noreply.github.com"
   },
   "type": "module",
+  "exports": {
+    ".": "./src/hello.ts"
+  },
   "scripts": {
     "check": "bun run --cwd ../.. check",
     "clean": "bun run --cwd ../.. clean",
-    "dev": "bun run --watch src/app.ts",
     "format:check": "bun run --cwd ../.. format:check",
     "format:fix": "bun run --cwd ../.. format:fix",
-    "start": "bun run src/app.ts",
     "test": "bun test --pass-with-no-tests",
     "typecheck": "bun run tsc --noEmit"
   },
-  "dependencies": {
-    "@tsbox/hello": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@tsconfig/bun": "catalog:base",
     "@types/bun": "catalog:base",
     "typescript": "catalog:base"
-  }
+  },
+  "peerDependencies": {}
 }
