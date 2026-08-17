@@ -19,7 +19,7 @@
         "prettier-plugin-packagejson": "^3",
         "prettier-plugin-sort-json": "^4",
         "typescript": "^5",
-        "vitest": "^4",
+        "vitest": "catalog:test",
       },
     },
     "apps/hello": {
@@ -28,15 +28,26 @@
       "dependencies": {
         "@tsbox/hello": "workspace:*",
       },
+      "devDependencies": {
+        "vitest": "catalog:test",
+      },
     },
     "libs/hello": {
       "name": "@tsbox/hello",
       "version": "0.1.0",
+      "devDependencies": {
+        "vitest": "catalog:test",
+      },
     },
   },
   "trustedDependencies": [
     "lefthook",
   ],
+  "catalogs": {
+    "test": {
+      "vitest": "^4",
+    },
+  },
   "packages": {
     "@augment-vir/assert": ["@augment-vir/assert@32.2.2", "", { "dependencies": { "@augment-vir/core": "^32.2.2", "@date-vir/duration": "^9.0.0", "deep-eql": "^5.0.2", "expect-type": "^1.4.0" } }, "sha512-JUT6aHBcCEm7IORRvKxI9PWGkN9FiMYvkpKnGQeoyDvksfdaol7nTbgGVnskvy7b/sZWk1zErvuh2Jgh2Owtog=="],
 

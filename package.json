@@ -13,10 +13,17 @@
     "email": "88191516+vprianikov@users.noreply.github.com"
   },
   "type": "module",
-  "workspaces": [
-    "apps/**",
-    "libs/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/**",
+      "libs/**"
+    ],
+    "catalogs": {
+      "test": {
+        "vitest": "^4"
+      }
+    }
+  },
   "scripts": {
     "check": "bun run lefthook run pre-commit --force",
     "clean": "git clean -Xdf && rm -f bun.lock && bun i",
@@ -46,7 +53,7 @@
     "prettier-plugin-packagejson": "^3",
     "prettier-plugin-sort-json": "^4",
     "typescript": "^5",
-    "vitest": "^4"
+    "vitest": "catalog:test"
   },
   "trustedDependencies": [
     "lefthook"

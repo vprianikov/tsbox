@@ -24,5 +24,8 @@
     "format:fix": "bun run --cwd ../.. format:fix",
     "test": "bun run vitest run --reporter=agent",
     "typecheck": "bun run tsc --noEmit"
+  },
+  "devDependencies": {
+    "vitest": "catalog:test"
   }
 }

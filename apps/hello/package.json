@@ -26,5 +26,8 @@
   },
   "dependencies": {
     "@tsbox/hello": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "catalog:test"
   }
 }
