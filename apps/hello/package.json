@@ -1,5 +1,5 @@
 {
-  "name": "@tsbox/hello-app",
+  "name": "@tsbox/hello",
   "version": "0.1.0",
   "private": true,
   "description": "Hello World API powered by Hono and Bun",

@@ -20,7 +20,7 @@
       },
     },
     "apps/hello": {
-      "name": "@tsbox/hello-app",
+      "name": "@tsbox/hello",
       "version": "0.1.0",
       "dependencies": {
         "@tsbox/logger": "workspace:*",
@@ -29,15 +29,6 @@
       "devDependencies": {
         "@tsconfig/bun": "catalog:base",
         "@types/bun": "catalog:base",
-        "typescript": "catalog:base",
-        "vitest": "catalog:base",
-      },
-    },
-    "libs/hello": {
-      "name": "@tsbox/hello",
-      "version": "0.1.0",
-      "devDependencies": {
-        "@tsconfig/bun": "catalog:base",
         "typescript": "catalog:base",
         "vitest": "catalog:base",
       },
@@ -274,9 +265,7 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@tsbox/hello": ["@tsbox/hello@workspace:libs/hello"],
-
-    "@tsbox/hello-app": ["@tsbox/hello-app@workspace:apps/hello"],
+    "@tsbox/hello": ["@tsbox/hello@workspace:apps/hello"],
 
     "@tsbox/logger": ["@tsbox/logger@workspace:libs/logger"],
 

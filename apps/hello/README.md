@@ -1,4 +1,4 @@
-# @tsbox/hello-app
+# @tsbox/hello
 
 Hello World API powered by Hono and Bun.
 
