@@ -1,11 +1,21 @@
 import { Hono } from "hono";
-import { describe, expect, test } from "vitest";
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
+import middlewares from "../middlewares";
 import hello from "./hello";
 
 const app = new Hono();
 
+app.use(middlewares);
 app.route("/hello/", hello);
+
+beforeAll(() => {
+  vi.spyOn(console, "log").mockImplementation(() => undefined);
+});
+
+afterAll(() => {
+  vi.restoreAllMocks();
+});
 
 describe("/hello/", async () => {
   test("GET 200", async () => {

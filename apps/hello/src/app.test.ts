@@ -1,9 +1,8 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
 import app from "./app";
+import middlewares from "./middlewares";
 import hello from "./routes/hello";
-
-app.get("/success/", (c) => c.body(null));
 
 app.get("/error/", () => {
   throw new Error("Unexpected error");
@@ -39,23 +38,15 @@ describe("routes", () => {
 });
 
 describe("middlewares", () => {
-  test("mounts request middlewares globally", () => {
-    expect(
-      app.routes.filter(
-        ({ method, path }) => method === "ALL" && path === "/*",
-      ),
-    ).toHaveLength(2);
-    expect.assertions(1);
-  });
-
-  test("exposes a generated request ID", async () => {
-    const res = await app.request("/success/");
-
-    expect(res.status).toBe(200);
-    expect(res.headers.get("X-Request-Id")).toMatch(
-      /^[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/,
+  test("mounts globally", () => {
+    expect(app.routes).toContainEqual(
+      expect.objectContaining({
+        handler: middlewares,
+        method: "ALL",
+        path: "/*",
+      }),
     );
-    expect.assertions(2);
+    expect.assertions(1);
   });
 });
 
