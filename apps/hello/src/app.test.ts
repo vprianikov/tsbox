@@ -1,3 +1,4 @@
+import { HTTPException } from "hono/http-exception";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
 import app from "./app";
@@ -5,6 +6,10 @@ import hello from "./routes/hello";
 
 app.get("/error/", () => {
   throw new Error("Unexpected error");
+});
+
+app.get("/http-error/", () => {
+  throw new HTTPException(503, { message: "Service Unavailable" });
 });
 
 beforeAll(() => {
@@ -60,6 +65,11 @@ describe("errors", () => {
       "/error/",
       500,
       "Internal Server Error",
+    ],
+    [
+      "/http-error/",
+      503,
+      "Service Unavailable",
     ],
   ] as const)("handles %s", async (path, status, title) => {
     const res = await app.request(path, {

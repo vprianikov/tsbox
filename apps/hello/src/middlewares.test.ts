@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import {
   afterAll,
+  afterEach,
   beforeAll,
   beforeEach,
   describe,
@@ -17,6 +18,7 @@ const app = new Hono();
 app.use(middlewares(app));
 app.get("/success/", (c) => c.body(null));
 app.put("/success/", (c) => c.body(null));
+app.get("/timeout/", () => new Promise<Response>(() => undefined));
 
 let log: MockInstance<typeof console.log>;
 
@@ -26,6 +28,10 @@ beforeAll(() => {
 
 beforeEach(() => {
   log.mockClear();
+});
+
+afterEach(() => {
+  vi.useRealTimers();
 });
 
 afterAll(() => {
@@ -80,5 +86,23 @@ describe("middlewares", () => {
       ],
     });
     expect.assertions(5);
+  });
+
+  test("times out slow requests", async () => {
+    vi.useFakeTimers();
+    const requestId = "test-request-id";
+    const response = app.request("/timeout/", {
+      headers: {
+        "X-Request-Id": requestId,
+      },
+    });
+
+    await vi.advanceTimersByTimeAsync(500);
+    const res = await response;
+
+    expect(res.status).toBe(504);
+    expect(res.headers.get("X-Request-Id")).toBe(requestId);
+    expect(await res.text()).toBe("Gateway Timeout");
+    expect.assertions(3);
   });
 });

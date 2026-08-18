@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { HTTPException } from "hono/http-exception";
 
 import middlewares from "./middlewares";
 import hello from "./routes/hello";
@@ -7,18 +8,22 @@ const app = new Hono();
 
 app.use(middlewares(app));
 
-app.onError((_, c) => {
+app.onError((error, c) => {
+  const status = error instanceof HTTPException ? error.status : 500;
+  const title =
+    error instanceof HTTPException ? error.message : "Internal Server Error";
+
   return c.json(
     {
       errors: [
         {
           id: c.get("requestId"),
-          status: "500",
-          title: "Internal Server Error",
+          status: status.toString(),
+          title,
         },
       ],
     },
-    500,
+    status,
   );
 });
 
