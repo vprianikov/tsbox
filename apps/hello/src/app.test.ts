@@ -3,6 +3,8 @@ import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import app from "./app";
 import hello from "./routes/hello";
 
+app.get("/success/", (c) => c.body(null));
+
 app.get("/error/", () => {
   throw new Error("Unexpected error");
 });
@@ -37,23 +39,29 @@ describe("routes", () => {
 });
 
 describe("middlewares", () => {
-  test.each([
-    [
-      "logger",
-      "/*",
-    ],
-  ] as const)("mounts %s at %s", (_, path) => {
-    expect(app.routes).toContainEqual(
-      expect.objectContaining({
-        method: "ALL",
-        path,
-      }),
-    );
+  test("mounts request middlewares globally", () => {
+    expect(
+      app.routes.filter(
+        ({ method, path }) => method === "ALL" && path === "/*",
+      ),
+    ).toHaveLength(2);
     expect.assertions(1);
+  });
+
+  test("exposes a generated request ID", async () => {
+    const res = await app.request("/success/");
+
+    expect(res.status).toBe(200);
+    expect(res.headers.get("X-Request-Id")).toMatch(
+      /^[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/,
+    );
+    expect.assertions(2);
   });
 });
 
 describe("errors", () => {
+  const requestId = "test-request-id";
+
   test.each([
     [
       "/missing/",
@@ -66,18 +74,24 @@ describe("errors", () => {
       "Internal Server Error",
     ],
   ] as const)("handles %s", async (path, status, title) => {
-    const res = await app.request(path);
+    const res = await app.request(path, {
+      headers: {
+        "X-Request-Id": requestId,
+      },
+    });
 
     expect(res.status).toBe(status);
     expect(res.headers.get("Content-Type")).toContain("application/json");
+    expect(res.headers.get("X-Request-Id")).toBe(requestId);
     expect(await res.json()).toEqual({
       errors: [
         {
+          id: requestId,
           status: status.toString(),
           title,
         },
       ],
     });
-    expect.assertions(3);
+    expect.assertions(4);
   });
 });
