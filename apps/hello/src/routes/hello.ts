@@ -4,15 +4,19 @@ const hello = new Hono();
 
 hello.get("/", (c) => {
   return c.json({
-    message: "Hello, world!",
-    method: "GET",
+    data: {
+      message: "Hello, world!",
+      method: "GET",
+    },
   });
 });
 
 hello.put("/", (c) => {
   return c.json({
-    message: "Hello, world!",
-    method: "PUT",
+    data: {
+      message: "Hello, world!",
+      method: "PUT",
+    },
   });
 });
 
@@ -20,7 +24,9 @@ hello.get("/:name/", (c) => {
   const name = c.req.param("name");
 
   return c.json({
-    message: `Hello, ${name}!`,
+    data: {
+      message: `Hello, ${name}!`,
+    },
   });
 });
 

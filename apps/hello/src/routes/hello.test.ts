@@ -16,8 +16,10 @@ describe("/hello/", async () => {
     expect(res.status).toBe(200);
     expect(res.headers.get("Content-Type")).toContain("application/json");
     expect(await res.json()).toEqual({
-      message: "Hello, world!",
-      method: "GET",
+      data: {
+        message: "Hello, world!",
+        method: "GET",
+      },
     });
     expect.assertions(3);
   });
@@ -30,8 +32,10 @@ describe("/hello/", async () => {
     expect(res.status).toBe(200);
     expect(res.headers.get("Content-Type")).toContain("application/json");
     expect(await res.json()).toEqual({
-      message: "Hello, world!",
-      method: "PUT",
+      data: {
+        message: "Hello, world!",
+        method: "PUT",
+      },
     });
     expect.assertions(3);
   });
@@ -46,7 +50,9 @@ describe("/hello/:name/", async () => {
     expect(res.status).toBe(200);
     expect(res.headers.get("Content-Type")).toContain("application/json");
     expect(await res.json()).toEqual({
-      message: "Hello, Hono!",
+      data: {
+        message: "Hello, Hono!",
+      },
     });
     expect.assertions(3);
   });
