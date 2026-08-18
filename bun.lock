@@ -19,8 +19,8 @@
         "vitest": "catalog:base",
       },
     },
-    "apps/hello": {
-      "name": "@tsbox/hello",
+    "apps/backend": {
+      "name": "@tsbox/backend",
       "version": "0.1.0",
       "dependencies": {
         "@tsbox/logger": "workspace:*",
@@ -265,7 +265,7 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@tsbox/hello": ["@tsbox/hello@workspace:apps/hello"],
+    "@tsbox/backend": ["@tsbox/backend@workspace:apps/backend"],
 
     "@tsbox/logger": ["@tsbox/logger@workspace:libs/logger"],
 
