@@ -26,6 +26,8 @@
     "typecheck": "bun run tsc --noEmit"
   },
   "devDependencies": {
-    "vitest": "catalog:test"
+    "@tsconfig/bun": "catalog:base",
+    "typescript": "catalog:base",
+    "vitest": "catalog:base"
   }
 }

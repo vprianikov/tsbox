@@ -8,8 +8,6 @@
         "@commitlint/cli": "^21",
         "@commitlint/config-conventional": "^21",
         "@ianvs/prettier-plugin-sort-imports": "^4",
-        "@tsconfig/bun": "^1",
-        "@types/bun": "^1",
         "@vitest/coverage-v8": "^4",
         "knip": "^6",
         "lefthook": "^2",
@@ -18,8 +16,7 @@
         "prettier-plugin-multiline-arrays": "^4",
         "prettier-plugin-packagejson": "^3",
         "prettier-plugin-sort-json": "^4",
-        "typescript": "^5",
-        "vitest": "catalog:test",
+        "vitest": "catalog:base",
       },
     },
     "apps/hello": {
@@ -29,14 +26,19 @@
         "@tsbox/hello": "workspace:*",
       },
       "devDependencies": {
-        "vitest": "catalog:test",
+        "@tsconfig/bun": "catalog:base",
+        "@types/bun": "catalog:base",
+        "typescript": "catalog:base",
+        "vitest": "catalog:base",
       },
     },
     "libs/hello": {
       "name": "@tsbox/hello",
       "version": "0.1.0",
       "devDependencies": {
-        "vitest": "catalog:test",
+        "@tsconfig/bun": "catalog:base",
+        "typescript": "catalog:base",
+        "vitest": "catalog:base",
       },
     },
   },
@@ -44,7 +46,10 @@
     "lefthook",
   ],
   "catalogs": {
-    "test": {
+    "base": {
+      "@tsconfig/bun": "^1",
+      "@types/bun": "^1",
+      "typescript": "^5",
       "vitest": "^4",
     },
   },

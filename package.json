@@ -19,7 +19,10 @@
       "libs/**"
     ],
     "catalogs": {
-      "test": {
+      "base": {
+        "@tsconfig/bun": "^1",
+        "@types/bun": "^1",
+        "typescript": "^5",
         "vitest": "^4"
       }
     }
@@ -42,8 +45,6 @@
     "@commitlint/cli": "^21",
     "@commitlint/config-conventional": "^21",
     "@ianvs/prettier-plugin-sort-imports": "^4",
-    "@tsconfig/bun": "^1",
-    "@types/bun": "^1",
     "@vitest/coverage-v8": "^4",
     "knip": "^6",
     "lefthook": "^2",
@@ -52,8 +53,7 @@
     "prettier-plugin-multiline-arrays": "^4",
     "prettier-plugin-packagejson": "^3",
     "prettier-plugin-sort-json": "^4",
-    "typescript": "^5",
-    "vitest": "catalog:test"
+    "vitest": "catalog:base"
   },
   "trustedDependencies": [
     "lefthook"

@@ -28,6 +28,9 @@
     "@tsbox/hello": "workspace:*"
   },
   "devDependencies": {
-    "vitest": "catalog:test"
+    "@tsconfig/bun": "catalog:base",
+    "@types/bun": "catalog:base",
+    "typescript": "catalog:base",
+    "vitest": "catalog:base"
   }
 }
