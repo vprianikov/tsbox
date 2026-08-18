@@ -2,7 +2,7 @@
   "name": "@tsbox/hello-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Hello World application powered by Bun",
+  "description": "Hello World API powered by Hono and Bun",
   "homepage": "https://github.com/vprianikov/tsbox/tree/master/apps/hello#readme",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "typecheck": "bun run tsc --noEmit"
   },
   "dependencies": {
-    "@tsbox/hello": "workspace:*"
+    "hono": "catalog:backend"
   },
   "devDependencies": {
     "@tsconfig/bun": "catalog:base",

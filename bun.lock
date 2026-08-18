@@ -23,7 +23,7 @@
       "name": "@tsbox/hello-app",
       "version": "0.1.0",
       "dependencies": {
-        "@tsbox/hello": "workspace:*",
+        "hono": "catalog:backend",
       },
       "devDependencies": {
         "@tsconfig/bun": "catalog:base",
@@ -46,6 +46,9 @@
     "lefthook",
   ],
   "catalogs": {
+    "backend": {
+      "hono": "^4",
+    },
     "base": {
       "@tsconfig/bun": "^1",
       "@types/bun": "^1",
@@ -385,6 +388,8 @@
     "global-directory": ["global-directory@5.0.0", "", { "dependencies": { "ini": "6.0.0" } }, "sha512-1pgFdhK3J2LeM+dVf2Pd424yHx2ou338lC0ErNP2hPx4j8eW1Sp0XqSjNxtk6Tc4Kr5wlWtSvz8cn2yb7/SG/w=="],
 
     "has-flag": ["has-flag@4.0.0", "", {}, "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ=="],
+
+    "hono": ["hono@4.13.3", "", {}, "sha512-r8AO2mYHoLxSHkgafNeC/BXyb2vWRxD3jem4Ts+ptav8oTG5FIRifAjuJEmZI4bSvvc2ns0GxmIYiZnHqN3mMw=="],
 
     "html-escaper": ["html-escaper@2.0.2", "", {}, "sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg=="],
 

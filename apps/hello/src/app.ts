@@ -1,3 +1,9 @@
-import hello from "@tsbox/hello";
+import { Hono } from "hono";
 
-console.log(hello());
+import hello from "./routes/hello";
+
+const app = new Hono().basePath("/api/");
+
+app.route("/hello/", hello);
+
+export default app;

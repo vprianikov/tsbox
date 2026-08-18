@@ -19,6 +19,9 @@
       "libs/*"
     ],
     "catalogs": {
+      "backend": {
+        "hono": "^4"
+      },
       "base": {
         "@tsconfig/bun": "^1",
         "@types/bun": "^1",
