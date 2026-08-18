@@ -32,6 +32,7 @@
     "clean": "git clean -Xdf && rm -f bun.lock && bun i",
     "commit:check": "commitlint --edit",
     "dev": "bun run --workspaces --if-present dev",
+    "fix": "bun run knip:fix && bun run format:fix",
     "format:check": "bun run prettier --check .",
     "format:fix": "bun run prettier --write .",
     "knip:check": "knip",

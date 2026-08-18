@@ -18,8 +18,7 @@
     "check": "bun run --cwd ../.. check",
     "clean": "bun run --cwd ../.. clean",
     "dev": "bun run --watch src/app.ts",
-    "format:check": "bun run --cwd ../.. format:check",
-    "format:fix": "bun run --cwd ../.. format:fix",
+    "fix": "bun run --cwd ../.. fix",
     "start": "bun run src/app.ts",
     "test": "bun run vitest run --reporter=agent",
     "typecheck": "bun run tsc --noEmit"
