@@ -2,6 +2,7 @@ import type { Hono } from "hono";
 import { every } from "hono/combine";
 import { compress } from "hono/compress";
 import { methodNotAllowed } from "hono/method-not-allowed";
+import { prettyJSON } from "hono/pretty-json";
 import { requestId } from "hono/request-id";
 import { timeout } from "hono/timeout";
 import { appendTrailingSlash } from "hono/trailing-slash";
@@ -34,6 +35,11 @@ const middlewares = (app: Hono) =>
         ),
     }),
     compress({ encoding: "gzip" }),
+    ...(process.env.NODE_ENV !== "production"
+      ? [
+          prettyJSON({ force: true }),
+        ]
+      : []),
   );
 
 export default middlewares;

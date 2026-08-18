@@ -34,6 +34,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.useRealTimers();
+  vi.unstubAllEnvs();
 });
 
 afterAll(() => {
@@ -123,5 +124,32 @@ describe("middlewares", () => {
     expect(res.headers.get("Vary")).toBe("Accept-Encoding");
     expect(body).toEqual({ data: compressibleData });
     expect.assertions(4);
+  });
+
+  test.each([
+    [
+      "test",
+      "/json/",
+      `{
+  "data": "hello"
+}`,
+    ],
+    [
+      "production",
+      "/json/?pretty",
+      '{"data":"hello"}',
+    ],
+  ] as const)("returns expected JSON in %s", async (nodeEnv, path, body) => {
+    vi.stubEnv("NODE_ENV", nodeEnv);
+    const envApp = new Hono();
+
+    envApp.use(middlewares(envApp));
+    envApp.get("/json/", (c) => c.json({ data: "hello" }));
+
+    const res = await envApp.request(path);
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe(body);
+    expect.assertions(2);
   });
 });
