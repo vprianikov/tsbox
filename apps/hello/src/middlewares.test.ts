@@ -24,4 +24,18 @@ describe("middlewares", () => {
     );
     expect.assertions(3);
   });
+
+  test("appends a trailing slash and preserves the query string", async () => {
+    vi.spyOn(console, "log").mockImplementation(() => undefined);
+    const res = await app.request("/success?name=Hono&language=en");
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get("Location")).toBe(
+      "http://localhost/success/?name=Hono&language=en",
+    );
+    expect(res.headers.get("X-Request-Id")).toMatch(
+      /^[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/,
+    );
+    expect.assertions(3);
+  });
 });
