@@ -15,8 +15,8 @@
   "type": "module",
   "workspaces": {
     "packages": [
-      "apps/**",
-      "libs/**"
+      "apps/*",
+      "libs/*"
     ],
     "catalogs": {
       "base": {

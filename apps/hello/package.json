@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Hello World application powered by Bun",
-  "homepage": "https://github.com/vprianikov/tsbox/apps/hello#readme",
+  "homepage": "https://github.com/vprianikov/tsbox/tree/master/apps/hello#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vprianikov/tsbox.git"
