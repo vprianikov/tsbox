@@ -1,10 +1,18 @@
-import { describe, expect, test } from "vitest";
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
 import app from "./app";
 import hello from "./routes/hello";
 
 app.get("/error/", () => {
   throw new Error("Unexpected error");
+});
+
+beforeAll(() => {
+  vi.spyOn(console, "log").mockImplementation(() => undefined);
+});
+
+afterAll(() => {
+  vi.restoreAllMocks();
 });
 
 describe("routes", () => {
@@ -28,15 +36,32 @@ describe("routes", () => {
   });
 });
 
+describe("middlewares", () => {
+  test.each([
+    [
+      "logger",
+      "/*",
+    ],
+  ] as const)("mounts %s at %s", (_, path) => {
+    expect(app.routes).toContainEqual(
+      expect.objectContaining({
+        method: "ALL",
+        path,
+      }),
+    );
+    expect.assertions(1);
+  });
+});
+
 describe("errors", () => {
   test.each([
     [
-      "/api/missing/",
+      "/missing/",
       404,
       "Not Found",
     ],
     [
-      "/api/error/",
+      "/error/",
       500,
       "Internal Server Error",
     ],

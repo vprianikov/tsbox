@@ -1,8 +1,12 @@
 import { Hono } from "hono";
 
+import logger from "@tsbox/logger";
+
 import hello from "./routes/hello";
 
-const app = new Hono().basePath("/api/");
+const app = new Hono();
+
+app.use(logger("hello-api"));
 
 app.onError((_, c) => {
   return c.json(
@@ -32,6 +36,6 @@ app.notFound((c) => {
   );
 });
 
-app.route("/hello/", hello);
+app.route("/api/hello/", hello);
 
 export default app;

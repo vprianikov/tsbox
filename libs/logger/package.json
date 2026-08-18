@@ -1,9 +1,9 @@
 {
-  "name": "@tsbox/hello-app",
+  "name": "@tsbox/logger",
   "version": "0.1.0",
   "private": true,
-  "description": "Hello World API powered by Hono and Bun",
-  "homepage": "https://github.com/vprianikov/tsbox/tree/master/apps/hello#readme",
+  "description": "Environment-aware Hono request logger",
+  "homepage": "https://github.com/vprianikov/tsbox/tree/master/libs/logger#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vprianikov/tsbox.git"
@@ -14,23 +14,24 @@
     "email": "88191516+vprianikov@users.noreply.github.com"
   },
   "type": "module",
+  "exports": {
+    ".": "./src/logger.ts"
+  },
   "scripts": {
     "check": "bun run --cwd ../.. check",
     "clean": "bun run --cwd ../.. clean",
-    "dev": "bun run --watch src/app.ts",
     "fix": "bun run --cwd ../.. fix",
-    "start": "bun run src/app.ts",
     "test": "bun run vitest run --reporter=agent",
     "typecheck": "bun run tsc --noEmit"
-  },
-  "dependencies": {
-    "@tsbox/logger": "workspace:*",
-    "hono": "catalog:backend"
   },
   "devDependencies": {
     "@tsconfig/bun": "catalog:base",
     "@types/bun": "catalog:base",
+    "hono": "catalog:backend",
     "typescript": "catalog:base",
     "vitest": "catalog:base"
+  },
+  "peerDependencies": {
+    "hono": "catalog:backend"
   }
 }

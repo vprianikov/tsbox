@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": [
+      "bun"
+    ]
+  },
+  "extends": [
+    "@tsconfig/bun/tsconfig.json"
+  ]
+}
