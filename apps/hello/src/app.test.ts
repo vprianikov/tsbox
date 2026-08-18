@@ -3,6 +3,10 @@ import { describe, expect, test } from "vitest";
 import app from "./app";
 import hello from "./routes/hello";
 
+app.get("/error/", () => {
+  throw new Error("Unexpected error");
+});
+
 describe("routes", () => {
   test.each([
     [
@@ -21,5 +25,34 @@ describe("routes", () => {
       true,
     );
     expect.assertions(2);
+  });
+});
+
+describe("errors", () => {
+  test.each([
+    [
+      "/api/missing/",
+      404,
+      "Not Found",
+    ],
+    [
+      "/api/error/",
+      500,
+      "Internal Server Error",
+    ],
+  ] as const)("handles %s", async (path, status, title) => {
+    const res = await app.request(path);
+
+    expect(res.status).toBe(status);
+    expect(res.headers.get("Content-Type")).toContain("application/json");
+    expect(await res.json()).toEqual({
+      errors: [
+        {
+          status: status.toString(),
+          title,
+        },
+      ],
+    });
+    expect.assertions(3);
   });
 });
