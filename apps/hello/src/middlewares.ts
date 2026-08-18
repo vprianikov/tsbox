@@ -1,5 +1,6 @@
 import type { Hono } from "hono";
 import { every } from "hono/combine";
+import { compress } from "hono/compress";
 import { methodNotAllowed } from "hono/method-not-allowed";
 import { requestId } from "hono/request-id";
 import { timeout } from "hono/timeout";
@@ -32,6 +33,7 @@ const middlewares = (app: Hono) =>
           },
         ),
     }),
+    compress({ encoding: "gzip" }),
   );
 
 export default middlewares;

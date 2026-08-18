@@ -14,10 +14,12 @@ import {
 import middlewares from "./middlewares";
 
 const app = new Hono();
+const compressibleData = "hello".repeat(256);
 
 app.use(middlewares(app));
 app.get("/success/", (c) => c.body(null));
 app.put("/success/", (c) => c.body(null));
+app.get("/compressed/", (c) => c.json({ data: compressibleData }));
 app.get("/timeout/", () => new Promise<Response>(() => undefined));
 
 let log: MockInstance<typeof console.log>;
@@ -104,5 +106,22 @@ describe("middlewares", () => {
     expect(res.headers.get("X-Request-Id")).toBe(requestId);
     expect(await res.text()).toBe("Gateway Timeout");
     expect.assertions(3);
+  });
+
+  test("compresses responses with gzip", async () => {
+    const res = await app.request("/compressed/", {
+      headers: {
+        "Accept-Encoding": "gzip",
+      },
+    });
+    const body = await new Response(
+      res.body?.pipeThrough(new DecompressionStream("gzip")),
+    ).json();
+
+    expect(res.status).toBe(200);
+    expect(res.headers.get("Content-Encoding")).toBe("gzip");
+    expect(res.headers.get("Vary")).toBe("Accept-Encoding");
+    expect(body).toEqual({ data: compressibleData });
+    expect.assertions(4);
   });
 });
