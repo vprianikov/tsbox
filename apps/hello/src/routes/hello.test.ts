@@ -6,7 +6,7 @@ import hello from "./hello";
 
 const app = new Hono();
 
-app.use(middlewares);
+app.use(middlewares(app));
 app.route("/hello/", hello);
 
 beforeAll(() => {

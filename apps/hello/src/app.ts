@@ -5,7 +5,7 @@ import hello from "./routes/hello";
 
 const app = new Hono();
 
-app.use(middlewares);
+app.use(middlewares(app));
 
 app.onError((_, c) => {
   return c.json(

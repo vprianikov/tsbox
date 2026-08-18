@@ -1,7 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
 import app from "./app";
-import middlewares from "./middlewares";
 import hello from "./routes/hello";
 
 app.get("/error/", () => {
@@ -39,13 +38,11 @@ describe("routes", () => {
 
 describe("middlewares", () => {
   test("mounts globally", () => {
-    expect(app.routes).toContainEqual(
-      expect.objectContaining({
-        handler: middlewares,
-        method: "ALL",
-        path: "/*",
-      }),
-    );
+    expect(
+      app.routes.filter(
+        ({ method, path }) => method === "ALL" && path === "/*",
+      ),
+    ).toHaveLength(1);
     expect.assertions(1);
   });
 });
